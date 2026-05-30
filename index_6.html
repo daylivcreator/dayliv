@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dayliv — Daily Health Coach for Entrepreneurs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,700;1,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--g:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#0F6E56;--t:#2C2C2A;--tm:#5F5E5A;--th:#888780;--bg:#fff;--bs:#F1EFE8;--border:rgba(0,0,0,0.09)}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);line-height:1.7}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 40px}
+.header-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Inter',sans-serif;font-size:20px;font-weight:900;color:var(--t);letter-spacing:-0.03em}
+.logo em{font-family:'Inter',sans-serif;font-style:normal;font-weight:400;color:var(--g);letter-spacing:0.03em}
+.btn-g{background:var(--g);color:#fff;border:none;padding:10px 22px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.2s}
+.btn-g:hover{background:var(--gd);transform:translateY(-1px)}
+
+/* HERO */
+.hero{padding:64px 40px 56px;max-width:760px;margin:0 auto;text-align:center}
+h1{font-family:'Inter',sans-serif;font-size:52px;font-weight:900;line-height:1.08;letter-spacing:-0.03em;margin-bottom:20px;color:var(--t)}
+h1 em{font-family:'Playfair Display',serif;font-style:italic;color:var(--g)}
+.sub{font-size:18px;color:var(--tm);line-height:1.75;max-width:480px;margin:0 auto 32px;font-weight:300}
+.hero-form{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.hero-input{padding:13px 20px;border-radius:100px;border:2px solid var(--g);font-family:'DM Sans',sans-serif;font-size:14px;width:240px;outline:none;transition:border-color 0.2s,background 0.2s;color:var(--t);background:var(--gl)}
+.hero-input:focus{border-color:var(--gd);background:#fff}
+.hero-input::placeholder{color:var(--gm);opacity:0.7}
+.hero-note{font-size:12px;color:var(--th);margin-bottom:40px;line-height:1.8}
+.hero-note strong{color:var(--gm);font-weight:500}
+.social{display:flex;align-items:center;justify-content:center;gap:24px;padding:24px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.social-item{text-align:center}
+.social-item .num{font-family:'Inter',sans-serif;font-size:22px;font-weight:800;color:var(--t)}
+.social-item .lbl{font-size:11px;color:var(--th);text-transform:uppercase;letter-spacing:0.05em;margin-top:4px}
+.social-sep{width:1px;height:36px;background:var(--border)}
+
+/* SECTIONS */
+.pain{padding:64px 40px 0;max-width:760px;margin:0 auto}
+.section-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--th);margin-bottom:16px}
+.section-title{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;line-height:1.2;letter-spacing:-0.02em;margin-bottom:32px;color:var(--t)}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pain-item{background:var(--bs);border-radius:12px;padding:20px;display:flex;align-items:flex-start;gap:14px}
+.pain-item i{font-size:20px;color:var(--tm);margin-top:2px;flex-shrink:0}
+.pain-item p{font-size:14px;color:var(--tm);line-height:1.65}
+
+/* PAIN INPUT SECTION */
+.pain-input-wrap{padding:64px 40px;max-width:760px;margin:0 auto}
+.pain-input-box{background:var(--bs);border-radius:20px;padding:40px}
+.pain-input-box h2{font-family:'Inter',sans-serif;font-size:22px;font-weight:800;margin-bottom:10px;color:var(--t);letter-spacing:-0.02em}
+.pain-input-box p{font-size:14px;color:var(--tm);line-height:1.7;margin-bottom:24px}
+.pain-textarea{width:100%;padding:16px 18px;border-radius:14px;border:1.5px solid var(--border);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.65;color:var(--t);background:#fff;outline:none;resize:none;transition:border-color 0.2s;min-height:100px}
+.pain-textarea:focus{border-color:var(--g)}
+.pain-textarea::placeholder{color:var(--th)}
+.pain-submit{margin-top:14px;width:100%}
+.pain-submit .btn-g{width:100%;padding:14px;font-size:14px;border-radius:12px}
+.pain-confirm{display:none;text-align:center;padding:24px 0}
+.pain-confirm .check{font-size:36px;margin-bottom:12px}
+.pain-confirm h3{font-family:'Inter',sans-serif;font-size:18px;font-weight:800;color:var(--gd);margin-bottom:8px;letter-spacing:-0.02em}
+.pain-confirm p{font-size:14px;color:var(--tm);line-height:1.7;margin-bottom:24px}
+.brevo-embed{margin-top:4px}
+.brevo-link{display:block;text-align:center;background:var(--g);color:#fff;padding:13px 24px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;text-decoration:none;transition:all 0.2s}
+.brevo-link:hover{background:var(--gd);transform:translateY(-1px)}
+
+/* QUIZ */
+.quiz-wrap{padding:0 40px 64px;max-width:760px;margin:0 auto}
+.quiz-box{background:var(--bs);border-radius:20px;padding:40px}
+.quiz-header{text-align:center;margin-bottom:32px}
+.quiz-header h2{font-family:'Inter',sans-serif;font-size:22px;font-weight:800;margin-bottom:10px;color:var(--t);letter-spacing:-0.02em}
+.quiz-header p{font-size:14px;color:var(--tm);line-height:1.7}
+.quiz-progress{height:3px;background:rgba(0,0,0,0.08);border-radius:100px;margin-bottom:32px;overflow:hidden}
+.quiz-bar{height:100%;background:var(--g);border-radius:100px;transition:width 0.4s}
+.quiz-step{display:none}.quiz-step.active{display:block}
+.quiz-q{font-size:15px;font-weight:600;margin-bottom:20px;color:var(--t);line-height:1.5}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-opt{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:14px 18px;font-size:14px;cursor:pointer;transition:all 0.15s;text-align:left;font-family:'DM Sans',sans-serif;color:var(--t);display:flex;align-items:center;gap:12px;line-height:1.5}
+.quiz-opt:hover{border-color:var(--g);background:var(--gl)}
+.quiz-opt.selected{border-color:var(--g);background:var(--gl);color:var(--gd)}
+.quiz-opt i{font-size:17px;color:var(--th);flex-shrink:0}.quiz-opt.selected i{color:var(--g)}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px}
+.quiz-step-label{font-size:12px;color:var(--th)}
+.btn-outline{background:transparent;border:1.5px solid var(--border);padding:10px 20px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;color:var(--tm);transition:all 0.2s}
+.btn-outline:hover{border-color:var(--tm)}
+.quiz-result{text-align:center;display:none}
+.quiz-result h3{font-family:'Inter',sans-serif;font-size:22px;font-weight:800;margin-bottom:12px;color:var(--gd);letter-spacing:-0.02em}
+.quiz-result p{font-size:14px;color:var(--tm);margin-bottom:24px;line-height:1.75}
+.result-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px}
+.tag{background:var(--gl);color:var(--gd);font-size:12px;padding:6px 14px;border-radius:100px;font-weight:500}
+
+/* HOW */
+.how{padding:64px 40px 0;max-width:760px;margin:0 auto}
+.how h2{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px}
+.how-sub{font-size:15px;color:var(--tm);margin-bottom:36px;line-height:1.7}
+.steps{display:flex;flex-direction:column}
+.step{display:flex;gap:24px;padding:24px 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-n{font-family:'Inter',sans-serif;font-size:28px;font-weight:900;color:var(--g);min-width:40px;line-height:1}
+.step h4{font-size:15px;font-weight:600;margin-bottom:6px;color:var(--t)}
+.step p{font-size:14px;color:var(--tm);line-height:1.7}
+
+/* FEATURES */
+.feats{padding:64px 40px 0;max-width:760px;margin:0 auto}
+.feats h2{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px}
+.fs{font-size:15px;color:var(--tm);margin-bottom:28px;line-height:1.7}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feat-card{background:var(--bs);border-radius:14px;padding:24px 20px}
+.feat-icon{width:38px;height:38px;background:var(--gl);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.feat-icon i{font-size:19px;color:var(--gd)}
+.feat-card h3{font-size:14px;font-weight:600;margin-bottom:8px;color:var(--t)}
+.feat-card p{font-size:13px;color:var(--tm);line-height:1.65}
+
+/* BENEFITS */
+.benefits{padding:64px 40px 0;max-width:760px;margin:0 auto}
+.benefits h2{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px}
+.bs{font-size:15px;color:var(--tm);margin-bottom:28px;line-height:1.7}
+.benefit-list{display:flex;flex-direction:column;gap:14px}
+.benefit-item{display:flex;align-items:flex-start;gap:16px;padding:20px 22px;background:var(--bs);border-radius:12px}
+.benefit-check{width:28px;height:28px;background:var(--gl);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.benefit-check i{font-size:15px;color:var(--g)}
+.benefit-item h4{font-size:14px;font-weight:600;margin-bottom:5px;color:var(--t)}
+.benefit-item p{font-size:13px;color:var(--tm);line-height:1.65}
+
+/* FAQ */
+.faq{padding:64px 40px 0;max-width:760px;margin:0 auto}
+.faq h2{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;letter-spacing:-0.02em;margin-bottom:28px}
+.faq-item{border-bottom:1px solid var(--border);padding:18px 0;cursor:pointer}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;line-height:1.5;gap:16px}
+.faq-q i{font-size:16px;color:var(--th);transition:transform 0.2s;flex-shrink:0}
+.faq-a{font-size:13px;color:var(--tm);line-height:1.75;max-height:0;overflow:hidden;transition:max-height 0.3s,padding 0.3s}
+.faq-item.open .faq-a{max-height:200px;padding-top:12px}
+.faq-item.open .faq-q i{transform:rotate(180deg)}
+
+/* CTA */
+.cta-bottom{padding:64px 40px 96px;max-width:760px;margin:0 auto}
+.cta-box{background:var(--gd);border-radius:24px;padding:56px 48px;text-align:center}
+.cta-box h2{font-family:'Inter',sans-serif;font-size:30px;font-weight:900;color:#fff;margin-bottom:14px;letter-spacing:-0.03em;line-height:1.1}
+.cta-box p{font-size:15px;color:rgba(255,255,255,0.65);margin-bottom:32px;line-height:1.75}
+.btn-cta{background:var(--g);color:#fff;border:none;padding:14px 32px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block}
+.btn-cta:hover{background:#25b585;transform:translateY(-1px)}
+.cta-note{font-size:12px;color:rgba(255,255,255,0.4);margin-top:16px;line-height:1.8}
+
+@media(max-width:600px){
+  h1{font-size:36px}
+  .pain-grid{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr}
+  .hero{padding:40px 24px 36px}
+  .pain,.pain-input-wrap,.quiz-wrap,.how,.feats,.benefits,.faq,.cta-bottom{padding-left:24px;padding-right:24px}
+  .quiz-box,.pain-input-box{padding:24px}
+  .cta-box{padding:36px 24px}
+  .header{padding:0 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo" translate="no">Day<em>liv</em></div>
+    <button class="btn-g" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Get early access →</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Stop running on empty.<br><em>Perform</em> every day.</h1>
+  <p class="sub">Dayliv builds your personalized daily plan for nutrition, sport, and habits — so you can build your business without destroying your health.</p>
+  <div class="hero-form">
+    <input class="hero-input" type="email" placeholder="your@email.com" id="hero-email" />
+    <button class="btn-g" onclick="goToBrevo()">Get early access →</button>
+  </div>
+  <p class="hero-note">7-day free trial · <strong>Founders price: 9$/month</strong> (→ 19$ after beta) · Cancel anytime</p>
+  <div class="social">
+    <div class="social-item"><div class="num">Beta</div><div class="lbl">early access</div></div>
+    <div class="social-sep"></div>
+    <div class="social-item"><div class="num">3 min</div><div class="lbl">to get your plan</div></div>
+    <div class="social-sep"></div>
+    <div class="social-item"><div class="num">0 apps</div><div class="lbl">to juggle</div></div>
+  </div>
+</div>
+
+<!-- PAIN POINTS -->
+<div class="pain">
+  <p class="section-label">Sound familiar?</p>
+  <h2 class="section-title">You're building something great.<br>But your body is paying the price.</h2>
+  <div class="pain-grid">
+    <div class="pain-item"><i class="ti ti-battery-off"></i><p>You wake up already exhausted, no matter how many hours you slept</p></div>
+    <div class="pain-item"><i class="ti ti-brain-off"></i><p>Your focus crashes at 2pm and you can't push through important work</p></div>
+    <div class="pain-item"><i class="ti ti-salad"></i><p>You eat whatever's fast — and feel the difference in your mood and energy</p></div>
+    <div class="pain-item"><i class="ti ti-clock-off"></i><p>Sport keeps getting pushed back because there's always something more urgent</p></div>
+  </div>
+</div>
+
+<!-- PAIN INPUT -->
+<div class="pain-input-wrap" id="waitlist">
+  <div class="pain-input-box">
+    <div id="pain-form-view">
+      <h2>What's your biggest daily struggle?</h2>
+      <p>Tell us in your own words — your answer will be used to personalize your coaching plan when Dayliv launches.</p>
+      <textarea class="pain-textarea" id="pain-text" placeholder="e.g. I can't maintain consistent energy throughout the day, I always crash after lunch and can't focus on deep work..."></textarea>
+      <div class="pain-submit">
+        <button class="btn-g" onclick="submitPain()">Save my struggle → get notified at launch</button>
+      </div>
+    </div>
+    <div class="pain-confirm" id="pain-confirm-view">
+      <div class="check">✅</div>
+      <h3>Saved. Your coaching plan is being built.</h3>
+      <p>Your struggle has been recorded.<br>We'll use it to personalize your Dayliv plan from day one.<br>Enter your email below to get notified at launch.</p>
+      <div class="brevo-embed">
+        <a class="brevo-link" href="https://e1966e2e.sibforms.com/serve/MUIFAOKeyQAhd7aThpwc95y3ddkMyDgzYfLi_BZwCued7LJpHkCH2Io9vTXExUxgZO0qv8f-g4ho7h9GqgsvY9IQ7X7Fxzt0rUNsvW7hHkVp2e7uOnz1jm92tPscAG1Wirbw_o5NMVxC7OEK4sCSA8E-y2-GisBN3qoiMhPcfmizSh6UHTdIukQ2mue3RuoxBUgbFFUj7Y1nviUWLw==" target="_blank">Notify me at launch →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-wrap">
+  <div class="quiz-box">
+    <div class="quiz-header">
+      <h2>Find out what Dayliv fixes first for you</h2>
+      <p>2 minutes · 3 questions · personalized result</p>
+    </div>
+    <div class="quiz-progress"><div class="quiz-bar" id="qbar" style="width:33%"></div></div>
+    <div class="quiz-step active" id="step1">
+      <p class="quiz-q">1 — Where do you lose the most energy?</p>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="selectOpt(this,'energy','sleep')"><i class="ti ti-moon"></i>Poor sleep — I wake up drained</button>
+        <button class="quiz-opt" onclick="selectOpt(this,'energy','food')"><i class="ti ti-salad"></i>Bad nutrition — I eat on autopilot</button>
+        <button class="quiz-opt" onclick="selectOpt(this,'energy','stress')"><i class="ti ti-brain"></i>Chronic stress — my mind never rests</button>
+        <button class="quiz-opt" onclick="selectOpt(this,'energy','sedentary')"><i class="ti ti-armchair"></i>No movement — I sit all day</button>
+      </div>
+      <div class="quiz-nav">
+        <span class="quiz-step-label">Step 1 of 3</span>
+        <button class="btn-g" onclick="nextStep(2)" id="next1" style="opacity:0.4;pointer-events:none">Next →</button>
+      </div>
+    </div>
+    <div class="quiz-step" id="step2">
+      <p class="quiz-q">2 — When does your productivity crash?</p>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="selectOpt(this,'crash','morning')"><i class="ti ti-sun"></i>Morning — hard to start</button>
+        <button class="quiz-opt" onclick="selectOpt(this,'crash','afternoon')"><i class="ti ti-sun-low"></i>Early afternoon — post-lunch slump</button>
+        <button class="quiz-opt" onclick="selectOpt(this,'crash','evening')"><i class="ti ti-sunset"></i>Evening — completely depleted</button>
+        <button class="quiz-opt" onclick="selectOpt(this,'crash','always')"><i class="ti ti-cloud"></i>All day — no consistent energy</button>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-outline" onclick="prevStep(1)">← Back</button>
+        <span class="quiz-step-label">Step 2 of 3</span>
+        <button class="btn-g" onclick="nextStep(3)" id="next2" style="opacity:0.4;pointer-events:none">Next →</button>
+      </div>
+    </div>
+    <div class="quiz-step" id="step3">
+      <p class="quiz-q">3 — What have you already tried?</p>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="selectOpt(this,'tried','nothing')"><i class="ti ti-circle-dashed"></i>Nothing yet — I don't know where to start</button>
+        <button class="quiz-opt" onclick="selectOpt(this,'tried','apps')"><i class="ti ti-device-mobile"></i>Apps and trackers — but I never stick to them</button>
+        <button class="quiz-opt" onclick="selectOpt(this,'tried','coaches')"><i class="ti ti-user"></i>Coaches or programs — too rigid, not adapted</button>
+        <button class="quiz-opt" onclick="selectOpt(this,'tried','research')"><i class="ti ti-book"></i>YouTube / research — overwhelming, no clear plan</button>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-outline" onclick="prevStep(2)">← Back</button>
+        <span class="quiz-step-label">Step 3 of 3</span>
+        <button class="btn-g" onclick="showResult()" id="next3" style="opacity:0.4;pointer-events:none">See my result →</button>
+      </div>
+    </div>
+    <div class="quiz-result" id="quiz-result">
+      <div style="font-size:28px;margin-bottom:14px">✅</div>
+      <h3>Dayliv is built for you.</h3>
+      <p>Based on your answers, you're losing energy to <strong id="result-problem">poor habits</strong> and crashing at <strong id="result-crash">key moments</strong>.<br>Dayliv builds a daily plan that fixes this — starting day one.</p>
+      <div class="result-tags" id="result-tags"></div>
+      <button class="btn-g" onclick="goToBrevo()">Get my personalized plan →</button>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how">
+  <p class="section-label">How it works</p>
+  <h2>Three steps. One daily plan.</h2>
+  <p class="how-sub">Zero spreadsheets. No willpower required.</p>
+  <div class="steps">
+    <div class="step"><span class="step-n">01</span><div><h4>Tell us about you</h4><p>Your lifestyle, schedule, goals, and current habits.<br>3 minutes, no fluff.</p></div></div>
+    <div class="step"><span class="step-n">02</span><div><h4>Get your first daily plan</h4><p>Dayliv generates a complete day: what to eat, when to move, what habits to build.<br>Adapted to your exact profile.</p></div></div>
+    <div class="step"><span class="step-n">03</span><div><h4>It adapts every day</h4><p>Check off what you did, rate your energy.<br>Dayliv learns and adjusts — it gets better the more you use it.</p></div></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="feats">
+  <p class="section-label">What's included</p>
+  <h2>Everything in one place.</h2>
+  <p class="fs">No 5 different apps. One daily coach, three pillars.</p>
+  <div class="feat-grid">
+    <div class="feat-card"><div class="feat-icon"><i class="ti ti-salad"></i></div><h3>Nutrition</h3><p>Daily meal guide adapted to your energy needs and schedule.<br>No calorie counting.</p></div>
+    <div class="feat-card"><div class="feat-icon"><i class="ti ti-run"></i></div><h3>Sport</h3><p>Movement routines that fit your real day.<br>20 min or 90 min, Dayliv adapts.</p></div>
+    <div class="feat-card"><div class="feat-icon"><i class="ti ti-sparkles"></i></div><h3>Habits</h3><p>Micro-habits for sleep, focus, and recovery.<br>They compound into lasting change.</p></div>
+  </div>
+</div>
+
+<!-- BENEFITS -->
+<div class="benefits">
+  <p class="section-label">What changes for you</p>
+  <h2>What Dayliv will change.</h2>
+  <p class="bs">No testimonials yet — we're in beta.<br>Here's what the plan is designed to deliver.</p>
+  <div class="benefit-list">
+    <div class="benefit-item"><div class="benefit-check"><i class="ti ti-check"></i></div><div><h4>Consistent energy from morning to evening</h4><p>No more afternoon crashes.<br>Nutrition and sleep habits aligned to keep you sharp all day.</p></div></div>
+    <div class="benefit-item"><div class="benefit-check"><i class="ti ti-check"></i></div><div><h4>A sport routine you actually stick to</h4><p>Because it fits your real schedule — not an idealized version of it.<br>20 minutes counts.</p></div></div>
+    <div class="benefit-item"><div class="benefit-check"><i class="ti ti-check"></i></div><div><h4>Eating well without thinking about it</h4><p>A simple daily meal guide.<br>No tracking, no calorie counting. Just clear, actionable choices.</p></div></div>
+    <div class="benefit-item"><div class="benefit-check"><i class="ti ti-check"></i></div><div><h4>A cleaner mind, less stress, better sleep</h4><p>Daily habits built around recovery.<br>So you wake up rested and ready to execute.</p></div></div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq">
+  <p class="section-label">Questions</p>
+  <h2>FAQ</h2>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I need any equipment or wearable device? <i class="ti ti-chevron-down"></i></div><div class="faq-a">No. Dayliv works entirely from your phone or computer — no wearable or fitness tracker required.</div></div>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Is this a generic plan or actually personalized? <i class="ti ti-chevron-down"></i></div><div class="faq-a">Genuinely personalized. Dayliv adapts your plan based on your profile and daily feedback. The longer you use it, the more accurate it becomes.</div></div>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How is Dayliv different from Yazio or MyFitnessPal? <i class="ti ti-chevron-down"></i></div><div class="faq-a">Those apps track what you do — Dayliv decides for you. No logging, no calorie counting. You get a complete daily plan across nutrition, sport and habits that you simply follow. It's a daily coach, not a tracker.</div></div>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What happens after the 7-day trial? <i class="ti ti-chevron-down"></i></div><div class="faq-a">After your 7-day free trial, you're billed 9$/month — founders price, locked for life. After beta, the price goes to 19$/month. Cancel anytime, no questions asked.</div></div>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Is it available in French? <i class="ti ti-chevron-down"></i></div><div class="faq-a">Yes. Dayliv is fully bilingual — French and English. You choose your language during onboarding.</div></div>
+</div>
+
+<!-- CTA -->
+<div class="cta-bottom">
+  <div class="cta-box">
+    <h2>Take the first step.<br>Perform at your best.</h2>
+    <p>Founders price: 9$/month · Locked in for life.</p>
+    <a class="btn-cta" href="https://e1966e2e.sibforms.com/serve/MUIFAOKeyQAhd7aThpwc95y3ddkMyDgzYfLi_BZwCued7LJpHkCH2Io9vTXExUxgZO0qv8f-g4ho7h9GqgsvY9IQ7X7Fxzt0rUNsvW7hHkVp2e7uOnz1jm92tPscAG1Wirbw_o5NMVxC7OEK4sCSA8E-y2-GisBN3qoiMhPcfmizSh6UHTdIukQ2mue3RuoxBUgbFFUj7Y1nviUWLw==" target="_blank">Get early access →</a>
+    <p class="cta-note">7-day free trial · No credit card required · Cancel anytime</p>
+  </div>
+</div>
+
+<script>
+const BREVO='https://e1966e2e.sibforms.com/serve/MUIFAOKeyQAhd7aThpwc95y3ddkMyDgzYfLi_BZwCued7LJpHkCH2Io9vTXExUxgZO0qv8f-g4ho7h9GqgsvY9IQ7X7Fxzt0rUNsvW7hHkVp2e7uOnz1jm92tPscAG1Wirbw_o5NMVxC7OEK4sCSA8E-y2-GisBN3qoiMhPcfmizSh6UHTdIukQ2mue3RuoxBUgbFFUj7Y1nviUWLw==';
+function goToBrevo(){window.open(BREVO,'_blank')}
+function submitPain(){
+  const t=document.getElementById('pain-text').value.trim();
+  if(!t){alert('Please describe your struggle first.');return;}
+  document.getElementById('pain-form-view').style.display='none';
+  document.getElementById('pain-confirm-view').style.display='block';
+}
+const answers={};
+function selectOpt(el,key,val){
+  el.closest('.quiz-options').querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');answers[key]=val;
+  const n=document.getElementById('next'+el.closest('.quiz-step').id.replace('step',''));
+  if(n){n.style.opacity='1';n.style.pointerEvents='auto'}
+}
+function nextStep(n){document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));document.getElementById('step'+n).classList.add('active');document.getElementById('qbar').style.width=(n===2?66:100)+'%'}
+function prevStep(n){document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));document.getElementById('step'+n).classList.add('active');document.getElementById('qbar').style.width=(n===1?33:66)+'%'}
+function showResult(){
+  document.getElementById('qbar').style.width='100%';
+  document.querySelectorAll('.quiz-step').forEach(s=>s.style.display='none');
+  const r=document.getElementById('quiz-result');r.style.display='block';
+  const problems={sleep:'poor sleep recovery',food:'nutrition & energy',stress:'chronic stress',sedentary:'lack of movement'};
+  const crashes={morning:'your mornings',afternoon:'your afternoons',evening:'your evenings',always:'throughout your day'};
+  document.getElementById('result-problem').textContent=problems[answers.energy]||'daily habits';
+  document.getElementById('result-crash').textContent=crashes[answers.crash]||'key moments';
+  const tags=[];
+  if(answers.energy==='sleep')tags.push('Sleep protocol');
+  if(answers.energy==='food')tags.push('Nutrition plan');
+  if(answers.energy==='stress')tags.push('Stress recovery');
+  if(answers.energy==='sedentary')tags.push('Movement routine');
+  if(answers.crash==='afternoon')tags.push('Energy management');
+  if(answers.tried==='apps')tags.push('Habit consistency');
+  tags.push('Daily plan');
+  document.getElementById('result-tags').innerHTML=tags.map(t=>'<span class="tag">'+t+'</span>').join('');
+}
+function toggleFaq(el){el.classList.toggle('open')}
+</script>
+</body>
+</html>
